@@ -42,10 +42,71 @@
         .contact-btn { display: inline-block; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin: 5px; transition: opacity 0.3s; }
         
         footer { text-align: center; padding: 30px; background: #2c3e50; color: white; margin-top: 50px; }
+        /* Tab Styling */
+.tab-container {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: none;
+    background: #f1f1f1;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+    transition: 0.3s;
+}
+
+.tab-btn:hover { background: #e0e0e0; }
+
+.tab-btn.active {
+    background: #27ae60;
+    color: white;
+}
+
+.tab-content {
+    display: none; /* Hidden by default */
+    animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#documents ul { list-style: none; padding: 0; }
+#documents li { margin: 10px 0; }
+#documents a { color: #27ae60; text-decoration: none; font-weight: 500; }
+#documents a:hover { text-decoration: underline; }
+
     </style>
 </head>
 <body>
+<script>
+function openTab(evt, levelName) {
+    var i, tabcontent, tablinks;
 
+    // Hide all tab content
+    tabcontent = document.getElementsByClassName("tab-content");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Remove "active" class from all buttons
+    tablinks = document.getElementsByClassName("tab-btn");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show current tab and add active class to button
+    document.getElementById(levelName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+</body>
 <header>
     <img src="profile.jpg" alt="Mohammed Geta" class="profile-img">
     <h1 style="margin: 0; font-size: 2.8rem;">Mohammed Geta</h1>
@@ -93,6 +154,50 @@
             <span class="tech-tag dev-tag">Web Development</span>
         </div>
     </section>
+<section id="documents">
+    <h2>Professional Documents & Levels</h2>
+    <p>Access my academic and professional certifications categorized by level.</p>
+
+    <!-- Tab Buttons -->
+    <div class="tab-container">
+        <button class="tab-btn active" onclick="openTab(event, 'LevelI')">Level I</button>
+        <button class="tab-btn" onclick="openTab(event, 'LevelII')">Level II</button>
+        <button class="tab-btn" onclick="openTab(event, 'LevelIII')">Level III</button>
+        <button class="tab-btn" onclick="openTab(event, 'LevelIV')">Level IV</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="LevelI" class="tab-content" style="display: block;">
+        <div class="card">
+            <h3>Level I Certifications</h3>
+            <ul>
+                <li><a href="path/to/your/file1.pdf" target="_blank">Basic Animal Health Certificate.pdf</a></li>
+                <!-- Add more <li> items here as needed -->
+            </ul>
+        </div>
+    </div>
+
+    <div id="LevelII" class="tab-content" style="display: hidden;">
+        <div class="card">
+            <h3>Level II Certifications</h3>
+            <p>Documents coming soon...</p>
+        </div>
+    </div>
+
+    <div id="LevelIII" class="tab-content" style="display: hidden;">
+        <div class="card">
+            <h3>Level III Certifications</h3>
+            <p>Documents coming soon...</p>
+        </div>
+    </div>
+
+    <div id="LevelIV" class="tab-content" style="display: hidden;">
+        <div class="card">
+            <h3>Level IV Certifications</h3>
+            <p>Documents coming soon...</p>
+        </div>
+    </div>
+</section>
 
     <section>
     <h2>Contact & Social</h2>
