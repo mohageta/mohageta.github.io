@@ -167,15 +167,31 @@ function openTab(evt, levelName) {
     </div>
 
     <!-- Tab Content -->
-    <div id="LevelI" class="tab-content" style="display: block;">
-        <div class="card">
-            <h3>Level I documents</h3>
-            <ul>
-                <li><a href="path/to/your/file1.pdf" target="_blank">Basic Veterinary Tools and Equipments.pdf</a></li>
-                <!-- Add more <li> items here as needed -->
-            </ul>
+    <div class="card">
+    <h3>Level I Certifications</h3>
+    <div class="doc-list">
+        <!-- Repeat this block for each PDF -->
+        <div class="doc-item">
+            <span class="file-icon">📄</span>
+            <div class="doc-info">
+                <strong>Basic Animal Health</strong>
+                <p>Awarded: 2024</p>
+            </div>
+            <a href="documents/level1_health.pdf" class="download-link" download>Download PDF</a>
+        </div>
+        
+        <!-- Another example -->
+        <div class="doc-item">
+            <span class="file-icon">📄</span>
+            <div class="doc-info">
+                <strong>Intro to Veterinary Science</strong>
+                <p>Awarded: 2024</p>
+            </div>
+            <a href="documents/intro_vet.pdf" class="download-link" download>Download PDF</a>
         </div>
     </div>
+</div>
+
 
     <div id="LevelII" class="tab-content" style="display: hidden;">
         <div class="card">
